@@ -3,40 +3,55 @@
    Modern minimalist design with smooth animations and refined aesthetics
    ============================================================================ */
 
-/* CSS Variables - Modern Refined Palette */
+/* CSS Variables - Airtable Inspired Design System */
 :root {
-    --color-bg: #fafbfc;
+    /* Primary Colors */
+    --color-bg: #ffffff;
     --color-bg-alt: #ffffff;
-    --color-text: #1a202c;
-    --color-text-light: #718096;
-    --color-border: #e2e8f0;
-    --color-accent: #3b82f6;
-    --color-accent-hover: #2563eb;
+    --color-text: #181d26;
+    --color-text-weak: rgba(4, 14, 32, 0.69);
+    --color-secondary-text: #333333;
+    
+    /* Accent Colors */
+    --color-accent: #1b61c9;
+    --color-accent-hover: #0d4a9d;
     --color-accent-light: #dbeafe;
-    --color-secondary: #8b5cf6;
-    --color-success: #10b981;
+    --color-mid-blue: #254fad;
+    --color-success: #006400;
     
-    --font-serif: Georgia, "Palatino Linotype", "Book Antiqua", serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* Semantic Colors */
+    --color-border: #e0e2e6;
+    --color-surface-light: #f8fafc;
+    --color-spotlight: rgba(249, 252, 255, 0.97);
     
+    /* Typography */
+    --font-primary: Haas, -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    --font-display: "Haas Groot Disp", Haas, -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    
+    /* Spacing (8px base) */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
     
+    /* Transitions */
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    /* Shadows - Blue-tinted System */
+    --shadow-sm: rgba(0, 0, 0, 0.32) 0px 0px 1px, rgba(0, 0, 0, 0.08) 0px 0px 2px, rgba(45, 127, 249, 0.28) 0px 1px 3px, rgba(0, 0, 0, 0.06) 0px 0px 0px 0.5px inset;
+    --shadow-md: rgba(0, 0, 0, 0.32) 0px 0px 1px, rgba(0, 0, 0, 0.08) 0px 0px 2px, rgba(45, 127, 249, 0.28) 0px 1px 3px, rgba(0, 0, 0, 0.06) 0px 0px 0px 0.5px inset;
+    --shadow-lg: rgba(15, 48, 106, 0.05) 0px 0px 20px;
+    --shadow-xl: rgba(15, 48, 106, 0.08) 0px 0px 30px;
     
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
+    /* Border Radius */
+    --radius-sm: 2px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
 }
 
 /* ============================================================================
@@ -54,14 +69,11 @@ html {
 }
 
 body {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     background-color: var(--color-bg);
-    background-image: 
-        linear-gradient(135deg, transparent 0%, rgba(59, 130, 246, 0.02) 100%),
-        linear-gradient(45deg, transparent 0%, rgba(139, 92, 246, 0.01) 100%);
     color: var(--color-text);
-    line-height: 1.7;
-    letter-spacing: -0.3px;
+    line-height: 1.35;
+    letter-spacing: 0.18px;
 }
 
 /* ============================================================================
@@ -69,11 +81,11 @@ body {
    ============================================================================ */
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+    font-family: var(--font-primary);
     font-weight: 400;
-    line-height: 1.3;
+    line-height: 1.25;
     margin-bottom: var(--spacing-md);
-    letter-spacing: -0.5px;
+    letter-spacing: normal;
     color: var(--color-text);
 }
 
@@ -81,16 +93,19 @@ h1 {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-xs);
     color: var(--color-text);
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 1.15;
 }
 
 h2 {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-md);
+    padding-bottom: 0;
     position: relative;
     color: var(--color-text);
+    font-weight: 400;
+    line-height: 1.25;
 }
 
 h2::after {
@@ -98,46 +113,50 @@ h2::after {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 3rem;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-secondary) 100%);
-    border-radius: var(--radius-md);
+    width: 0;
+    height: 0;
+    background: none;
+    border-radius: 0;
 }
 
 h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
     color: var(--color-text);
+    font-weight: 400;
 }
 
 h4 {
-    font-size: 1.05rem;
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 400;
     margin-bottom: var(--spacing-sm);
     color: var(--color-text);
 }
 
 p {
     margin-bottom: var(--spacing-md);
-    text-align: justify;
+    text-align: left;
     color: var(--color-text);
-    line-height: 1.8;
+    line-height: 1.35;
+    letter-spacing: 0.18px;
 }
 
 .tagline {
     font-size: 1rem;
-    color: var(--color-text-light);
+    color: var(--color-text-weak);
     font-weight: normal;
     margin-bottom: 0;
+    letter-spacing: 0.08px;
 }
 
 .section-intro {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1.125rem;
+    line-height: 1.35;
     margin-bottom: var(--spacing-lg);
     color: var(--color-text);
     transition: var(--transition);
+    letter-spacing: 0.18px;
 }
 
 /* ============================================================================
@@ -163,6 +182,7 @@ a.nav-link {
     transition: var(--transition-fast);
     position: relative;
     padding-bottom: 2px;
+    letter-spacing: 0.08px;
 }
 
 a.nav-link::after {
@@ -172,9 +192,9 @@ a.nav-link::after {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-secondary) 100%);
+    background: var(--color-accent);
     transition: width var(--transition);
-    border-radius: var(--radius-md);
+    border-radius: 0;
 }
 
 a.nav-link:hover::after,
@@ -225,7 +245,7 @@ main {
     top: -40px;
     left: 0;
     background: var(--color-accent);
-    color: var(--color-bg-alt);
+    color: white;
     padding: var(--spacing-sm) var(--spacing-md);
     text-decoration: none;
     z-index: 100;
@@ -243,16 +263,13 @@ main {
    ============================================================================ */
 
 .header {
-    background-color: var(--color-bg-alt);
+    background-color: var(--color-bg);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
+    border-bottom: 1px solid var(--color-border);
     transition: var(--transition);
-}
-
-.header:hover {
-    box-shadow: var(--shadow-md);
 }
 
 .header-content {
@@ -266,6 +283,8 @@ main {
 .title-block h1 {
     font-size: 1.5rem;
     margin-bottom: 0;
+    font-weight: 400;
+    letter-spacing: normal;
 }
 
 .nav {
@@ -277,8 +296,8 @@ main {
 }
 
 .nav-link {
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--color-text);
     border-bottom: 2px solid transparent;
     transition: var(--transition);
@@ -301,9 +320,9 @@ main {
 
 .education-item:hover,
 .work-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     border-color: var(--color-accent-light);
-    transform: translateY(-2px);
+    transform: none;
 }
 
 .education-item:last-child,
@@ -325,15 +344,16 @@ main {
 .degree-title,
 .position-title {
     margin-bottom: 0;
-    font-size: 1.15rem;
-    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-family: var(--font-primary);
     color: var(--color-text);
+    font-weight: 400;
 }
 
 .grade {
     font-size: 0.9rem;
     color: var(--color-success);
-    font-weight: 600;
+    font-weight: 500;
     white-space: nowrap;
 }
 
@@ -342,12 +362,12 @@ main {
     font-size: 1rem;
     color: var(--color-accent);
     margin-bottom: var(--spacing-xs);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .date {
     font-size: 0.9rem;
-    color: var(--color-text-light);
+    color: var(--color-text-weak);
     margin-bottom: var(--spacing-md);
 }
 
@@ -365,7 +385,7 @@ main {
 }
 
 .details-list li:hover {
-    padding-left: calc(var(--spacing-md) + 4px);
+    padding-left: var(--spacing-md);
 }
 
 .details-list li::before {
@@ -373,12 +393,12 @@ main {
     position: absolute;
     left: 0;
     color: var(--color-accent);
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .details-list strong {
     color: var(--color-text);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* ============================================================================
@@ -395,21 +415,21 @@ main {
 .skill-category {
     padding: var(--spacing-lg);
     border: 1px solid var(--color-border);
-    background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+    background: var(--color-bg-alt);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .skill-category:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     border-color: var(--color-accent-light);
-    transform: translateY(-4px);
+    transform: none;
 }
 
 .skill-category-title {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
     margin-bottom: var(--spacing-md);
     color: var(--color-accent);
     font-weight: 400;
@@ -423,7 +443,7 @@ main {
     padding: var(--spacing-xs) 0;
     color: var(--color-text);
     border-bottom: 1px solid var(--color-border);
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: var(--transition-fast);
 }
 
@@ -433,7 +453,7 @@ main {
 
 .skill-list li:hover {
     color: var(--color-accent);
-    padding-left: 4px;
+    padding-left: 0;
 }
 
 /* ============================================================================
@@ -449,20 +469,20 @@ main {
 }
 
 .subsection-title {
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
     color: var(--color-text);
     margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
     font-weight: 400;
-    border-left: 4px solid var(--color-accent);
+    border-left: 1px solid var(--color-border);
     padding-left: var(--spacing-md);
     transition: var(--transition);
 }
 
 .subsection-title:hover {
-    border-left-color: var(--color-secondary);
-    padding-left: calc(var(--spacing-md) + 4px);
+    border-left-color: var(--color-accent);
+    padding-left: var(--spacing-md);
 }
 
 .speaking-item {
@@ -476,9 +496,9 @@ main {
 }
 
 .speaking-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     border-color: var(--color-accent-light);
-    transform: translateY(-2px);
+    transform: none;
 }
 
 .speaking-item:last-child {
@@ -487,23 +507,23 @@ main {
 }
 
 .speaking-title {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
     color: var(--color-text);
     margin-bottom: var(--spacing-xs);
     font-weight: 400;
 }
 
 .speaking-subtitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-accent);
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: var(--spacing-sm);
 }
 
 .location {
-    font-size: 0.95rem;
-    color: var(--color-text-light);
+    font-size: 1rem;
+    color: var(--color-text-weak);
     margin-top: var(--spacing-xs);
 }
 
@@ -522,7 +542,7 @@ main {
 .certificate-item {
     padding: var(--spacing-lg);
     border: 1px solid var(--color-border);
-    background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+    background: var(--color-bg-alt);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
@@ -530,24 +550,24 @@ main {
 
 .reference-item:hover,
 .certificate-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     border-color: var(--color-accent-light);
-    transform: translateY(-4px);
+    transform: none;
 }
 
 .reference-name {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
     margin-bottom: var(--spacing-xs);
     font-weight: 400;
     color: var(--color-text);
 }
 
 .reference-title {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-accent);
     margin-bottom: var(--spacing-sm);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .reference-contact {
@@ -556,7 +576,7 @@ main {
 
 .reference-contact li {
     font-size: 0.9rem;
-    color: var(--color-text-light);
+    color: var(--color-text-weak);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -565,20 +585,18 @@ main {
 }
 
 .cert-title {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
     margin-bottom: var(--spacing-xs);
     font-weight: 400;
     color: var(--color-text);
 }
 
 .cert-issuer {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-accent);
     margin-bottom: var(--spacing-sm);
-    color: var(--color-accent);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 /* ============================================================================
@@ -586,11 +604,11 @@ main {
    ============================================================================ */
 
 .footer {
-    background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+    background: var(--color-bg);
     border-top: 1px solid var(--color-border);
     padding: var(--spacing-xl) 0;
     margin-top: var(--spacing-xl);
-    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
 }
 
 .contact-info {
@@ -614,12 +632,12 @@ main {
 }
 
 .contact-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     border-color: var(--color-accent-light);
 }
 
 .contact-item strong {
-    font-weight: 600;
+    font-weight: 500;
     color: var(--color-accent);
 }
 
@@ -637,7 +655,7 @@ main {
     padding-top: var(--spacing-lg);
     border-top: 1px solid var(--color-border);
     font-size: 0.9rem;
-    color: var(--color-text-light);
+    color: var(--color-text-weak);
     text-align: center;
     margin-top: var(--spacing-lg);
 }
@@ -665,7 +683,7 @@ main {
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .external-links a {
@@ -691,21 +709,23 @@ main {
 .download-btn {
     display: inline-block;
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
-    color: var(--color-bg-alt);
-    border: 1px solid transparent;
-    border-radius: var(--radius-lg);
-    font-weight: 500;
-    font-size: 0.95rem;
+    background: var(--color-accent);
+    color: white;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    font-weight: 400;
+    font-size: 1rem;
     transition: var(--transition);
     text-decoration: none;
     cursor: pointer;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.08px;
 }
 
 .download-btn:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
     box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
 }
 
 /* ============================================================================
@@ -718,7 +738,7 @@ main {
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .container {
@@ -739,7 +759,7 @@ main {
     }
 
     .nav-link {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .education-header,
@@ -779,7 +799,7 @@ main {
     }
 
     h2 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .container {
@@ -797,7 +817,7 @@ main {
     }
 
     .nav-link {
-        font-size: 0.85rem;
+        font-size: 0.95rem;
     }
 
     .details-list li {
