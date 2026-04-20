@@ -729,6 +729,89 @@ main {
 }
 
 /* ============================================================================
+   ABOUT ME SECTION WITH IMAGE
+   ============================================================================ */
+
+.about-me-content {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-me-image {
+    flex: 0 0 280px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-photo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.profile-photo:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.about-me-text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ============================================================================
+   CERTIFICATE WITH BADGE IMAGE
+   ============================================================================ */
+
+.certificate-content {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+.certificate-badge {
+    flex: 0 0 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    object-fit: contain;
+}
+
+.badge-image:hover {
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.05);
+}
+
+.certificate-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.cert-description {
+    font-size: 0.95rem;
+    color: var(--color-text-weak);
+    margin-top: var(--spacing-sm);
+    margin-bottom: 0;
+}
+
+/* ============================================================================
    RESPONSIVE DESIGN
    ============================================================================ */
 
@@ -778,6 +861,45 @@ main {
 
     .references-grid {
         grid-template-columns: 1fr;
+    }
+
+    .about-me-content {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-lg);
+    }
+
+    .about-me-image {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .profile-photo {
+        max-width: 250px;
+    }
+
+    .about-me-text {
+        width: 100%;
+    }
+
+    .certificate-content {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-lg);
+    }
+
+    .certificate-badge {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .badge-image {
+        max-width: 180px;
+    }
+
+    .certificate-details {
+        width: 100%;
+        text-align: center;
     }
 
     main {
@@ -840,6 +962,26 @@ main {
     .external-links {
         flex-direction: column;
         gap: var(--spacing-sm);
+    }
+
+    .about-me-content {
+        gap: var(--spacing-md);
+    }
+
+    .profile-photo {
+        max-width: 200px;
+    }
+
+    .certificate-content {
+        gap: var(--spacing-md);
+    }
+
+    .badge-image {
+        max-width: 150px;
+    }
+
+    .cert-title {
+        font-size: 1.05rem;
     }
 }
 
